@@ -9,7 +9,7 @@ router.post('/', restricted, (req, res) => {
     let { nights, guests, location } = req.body;
 
     Location
-        .find()
+        .findBy({ location })
         .then(() => {
             if (nights && guests && location) {
                 res.status(200).json({ price: 80 });

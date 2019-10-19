@@ -8,9 +8,9 @@ const restricted = require('../auth/restricted-middleware');
 router.get('/', restricted, (req, res) => {
     Users.find()
         .then(users => {
-            res.json({ loggedInUser: req.username, users });
+            res.status(200).json({ users });
         })
-        .catch(err => res.send(err));
+        .catch(err => res.status(500).send(err));
 });
 
 module.exports = router;
