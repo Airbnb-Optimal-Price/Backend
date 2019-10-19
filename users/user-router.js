@@ -7,22 +7,26 @@ const restricted = require('../auth/restricted-middleware');
 
 router.get('/', restricted, (req, res) => {
     Users.find()
-        .then(users => {
-            res.status(200).json({ users });
-        })
+        .then(users => res.status(200).json({ users }))
+        .catch(err => res.status(500).send(err));
+});
+
+router.get('/:id', restricted, (req, res) => {
+    let id = req.params.id;
+
+    Users.findById(id)
+        .then(users => res.status(200).json({ users }))
         .catch(err => res.status(500).send(err));
 });
 
 router.delete('/:id', restricted, (req, res) => {
     let id = req.params.id;
 
-    Users.findById(id)
-        .then(users => {
-            res.status(200).json({ message: "User deleted successfully." });
-        })
-        .catch(err => {
-            res.status(500).send(err);
-        });
+    Users
+        .findById(id)
+        .del()
+        .then(users => res.status(200).json({ message: "User deleted successfully." }))
+        .catch(err => res.status(500).send(err));
 });
 
 module.exports = router;
