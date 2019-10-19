@@ -2,16 +2,16 @@
 
 API Endpoints for "Airbnb Optimal Price"
 
-- REST API
+REST API
 The endpoints, their status and response values are described below.
 
-- REGISTER A USER
+# REGISTER A USER
 
-# Request
+- Request
 
 POST /api/auth/register
 
-# Response
+- Response
 
 HTTP 201 OK
 
@@ -19,13 +19,13 @@ Status: 201 OK
 Content-Type: application/json
 { "message": "User has been created" }
 
-- LOGIN WITH A REGISTERED USER
+# LOGIN WITH A REGISTERED USER
 
-#Request
+- Request
 
 POST /api/auth/login
 
-#Response
+- Response
 
 HTTP 200 OK
 
@@ -33,13 +33,13 @@ Status: 200 OK
 Content-Type: application/json
 { "message": "Welcome `${user.username}!`, token" }
 
-- GET LIST OF ALL USERS
+# GET LIST OF ALL USERS
 
-#Request
+- Request
 
 GET /api/users/
 
-#Response
+- Response
 
 HTTP 200 OK
 
@@ -47,11 +47,13 @@ Status: 200 OK
 Content-Type: application/json
 { "users": [] }
 
-- SEND AIRBNB DETAILS TO RECEIVE SUGGESTED PRICE
+# SEND AIRBNB DETAILS TO RECEIVE SUGGESTED PRICE
+
+- Request
 
 POST /api/price
 
-#Response
+- Response
 
 HTTP 200 OK
 
