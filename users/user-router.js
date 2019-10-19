@@ -13,4 +13,16 @@ router.get('/', restricted, (req, res) => {
         .catch(err => res.status(500).send(err));
 });
 
+router.delete('/:id', restricted, (req, res) => {
+    let id = req.params.id;
+
+    Users.findById(id)
+        .then(users => {
+            res.status(200).json({ message: "User deleted successfully." });
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
 module.exports = router;
