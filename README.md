@@ -47,6 +47,128 @@ Status: 200 OK
 Content-Type: application/json
 { "users": [] }
 
+Requires header:
+{ Authorization: token }
+
+# UPDATE USER
+
+- Request
+
+PUT /api/users/:id
+
+- Response
+
+HTTP 201 OK
+
+Status: 201 OK
+Content-Type: application/json
+{ user }
+
+Requires header:
+{ Authorization: token }
+
+# DELETE USER
+
+- Request
+
+DELETE /api/users/:id
+
+- Response
+
+HTTP 200 OK
+
+Status: 200 OK
+Content-Type: application/json
+{ "message": "User deleted successfully." }
+
+Requires header:
+{ Authorization: token }
+
+# GET LIST OF ALL LISTINGS FOR A USER
+
+- Request
+
+GET /api/users/:id/listing
+
+- Response
+
+HTTP 200 OK
+
+Status: 200 OK
+Content-Type: application/json
+{ "listings": [] }
+
+Requires header:
+{ Authorization: token }
+
+# GET LIST OF ALL LISTINGS
+
+- Request
+
+GET /api/listings/
+
+- Response
+
+HTTP 200 OK
+
+Status: 200 OK
+Content-Type: application/json
+{ "listings": [] }
+
+Requires header:
+{ Authorization: token }
+
+# POST LISTING
+
+- Request
+
+POST /api/listings/:id
+
+- Response
+
+HTTP 201 OK
+
+Status: 201 OK
+Content-Type: application/json
+{ listing }
+
+Requires header:
+{ Authorization: token }
+
+# UPDATE LISTING
+
+- Request
+
+PUT /api/listings/:id
+
+- Response
+
+HTTP 201 OK
+
+Status: 201 OK
+Content-Type: application/json
+{ listing }
+
+Requires header:
+{ Authorization: token }
+
+#DELETE LISTING
+
+- Request
+
+DELETE /api/listings/:id
+
+- Response
+
+HTTP 200 OK
+
+Status: 200 OK
+Content-Type: application/json
+{ "message": "Listing deleted successfully." }
+
+Requires header:
+{ Authorization: token }
+
 # SEND AIRBNB DETAILS TO RECEIVE SUGGESTED PRICE
 
 - Request
@@ -60,3 +182,6 @@ HTTP 200 OK
 Status: 200 OK
 Content-Type: application/json
 { "price": "`${suggestedprice}`" }
+
+Requires header:
+{ Authorization: token }
