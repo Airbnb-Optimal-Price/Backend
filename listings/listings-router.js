@@ -12,6 +12,15 @@ router.get('/', restricted, (req, res) => {
         .catch(error => res.status(500).json({ Error: 'Error getting listings.' }));
 });
 
+// Gets listing by ID
+router.get('/:id', restricted, (req, res) => {
+    let id = req.params.id;
+
+    Listings.findById(id)
+        .then(listings => res.status(200).json({ listings }))
+        .catch(err => res.status(500).send(err));
+});
+
 
 // Adds listing
 router.post('/', restricted, (req, res) => {

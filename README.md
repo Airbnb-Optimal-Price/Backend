@@ -50,6 +50,23 @@ Content-Type: application/json
 Requires header:
 { Authorization: token }
 
+# GET USER BY ID
+
+- Request
+
+GET /api/users/:id
+
+- Response
+
+HTTP 200 OK
+
+Status: 200 OK
+Content-Type: application/json
+{ user }
+
+Requires header:
+{ Authorization: token }
+
 # UPDATE USER
 
 - Request
@@ -114,6 +131,23 @@ HTTP 200 OK
 Status: 200 OK
 Content-Type: application/json
 { "listings": [] }
+
+Requires header:
+{ Authorization: token }
+
+# GET LISTING BY ID
+
+- Request
+
+GET /api/listings/:id
+
+- Response
+
+HTTP 200 OK
+
+Status: 200 OK
+Content-Type: application/json
+{ listing }
 
 Requires header:
 { Authorization: token }
