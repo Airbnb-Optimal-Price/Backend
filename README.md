@@ -152,7 +152,7 @@ Content-Type: application/json
 Requires header:
 { Authorization: token }
 
-#DELETE LISTING
+# DELETE LISTING
 
 - Request
 
