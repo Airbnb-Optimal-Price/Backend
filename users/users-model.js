@@ -5,6 +5,7 @@ module.exports = {
     find,
     findBy,
     findById,
+    findUserListing
 };
 
 function find() {
@@ -25,4 +26,11 @@ function findById(id) {
     return db('users')
         .where({ id })
         .first();
+}
+
+function findUserListing(id) {
+    return db('listings as l')
+        .join('users as u', 'u.id', 'l.users_id')
+        .select('l.id as Listing ID', 'l.name as Name', 'l.room_type as Room Type', 'l.number_nights as Min Stay', 'u.username as User')
+        .where({ users_id: id });
 }
