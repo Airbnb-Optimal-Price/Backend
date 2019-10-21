@@ -5,7 +5,8 @@ module.exports = {
     find,
     findBy,
     findById,
-    findUserListing
+    findUserListing,
+    update
 };
 
 function find() {
@@ -33,4 +34,11 @@ function findUserListing(id) {
         .join('users as u', 'u.id', 'l.users_id')
         .select('l.id as Listing ID', 'l.name as Name', 'l.room_type as Room Type', 'l.number_nights as Min Stay', 'u.username as User')
         .where({ users_id: id });
+}
+
+function update(id, changes) {
+    return db('users')
+        .where('id', id)
+        .update(changes)
+        .then(count => (count > 0 ? this.find(id) : null));
 }

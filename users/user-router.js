@@ -20,6 +20,17 @@ router.get('/:id', restricted, (req, res) => {
         .catch(err => res.status(500).send(err));
 });
 
+// Edit user with ID
+router.put('/:id', restricted, (req, res) => {
+    const id = req.params.id;
+    const changes = req.body;
+
+    Users
+        .update(id, changes)
+        .then(users => res.status(201).json(users))
+        .catch(error => res.status(500).json({ Error: 'Could not update user.' }));
+});
+
 // Deletes user with ID
 router.delete('/:id', restricted, (req, res) => {
     let id = req.params.id;
