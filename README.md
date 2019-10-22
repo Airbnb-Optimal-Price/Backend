@@ -156,7 +156,7 @@ Requires header:
 
 - Request
 
-POST /api/listings/:id
+POST /api/listings/
 
 - Response
 
