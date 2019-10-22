@@ -173,7 +173,7 @@ Requires header:
 
 - Request
 
-PUT /api/listings/:id
+PUT /api/listings/
 
 - Response
 
