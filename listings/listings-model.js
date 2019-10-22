@@ -9,7 +9,7 @@ module.exports = {
 };
 
 function find() {
-    return db('listings').select('id', 'name', 'room_type', 'number_nights', 'users_id');
+    return db('listings').select('id', 'label', 'accomodates', 'bathrooms', 'bedrooms', 'beds', 'bed_type', 'instant_bookable', 'minimum_nights', 'neighborhood', 'room_type', 'wifi', 'users_id');
 }
 
 function findBy(filter) {

@@ -3,14 +3,38 @@ exports.up = function (knex) {
         tbl.increments();
 
         tbl
-            .string('name', 128)
+            .string('label', 128)
+            .notNullable();
+        tbl
+            .integer('accomodates')
+            .notNullable();
+        tbl
+            .float('bathrooms', 1, 1)
+            .notNullable();
+        tbl
+            .integer('bedrooms')
+            .notNullable();
+        tbl
+            .integer('beds')
+            .notNullable();
+        tbl
+            .string('bed_type', 128)
+            .notNullable();
+        tbl
+            .boolean('instant_bookable')
+            .notNullable();
+        tbl
+            .integer('minimum_nights')
+            .notNullable();
+        tbl
+            .string('neighborhood', 128)
             .notNullable();
         tbl
             .string('room_type', 128)
-            .notNullable()
+            .notNullable();
         tbl
-            .integer('number_nights')
-            .notNullable()
+            .boolean('wifi')
+            .notNullable();
         tbl
             .integer('users_id')
             .unsigned()
