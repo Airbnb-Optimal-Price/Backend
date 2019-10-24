@@ -30,9 +30,9 @@ function findById(id) {
 }
 
 function findUserListing(id) {
-    return db('listings as l')
-        .join('users as u', 'u.id', 'l.users_id')
-        .select('l.id as Listing ID', 'l.name as Name', 'l.room_type as Room Type', 'l.number_nights as Min Stay', 'u.username as User')
+    return db('listings')
+        .join('users', 'users.id', 'listings.users_id')
+        .select('listings.id', 'listings.accomodates', 'listings.bathrooms', 'listings.bedrooms', 'listings.beds', 'listings.bed_type', 'listings.instant_bookable', 'listings.minimum_nights', 'listings.neighborhood', 'listings.room_type', 'listings.wifi', 'users.username')
         .where({ users_id: id });
 }
 
